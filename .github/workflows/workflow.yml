@@ -38,4 +38,7 @@ jobs:
         run: |
           opam exec -- dune exec -- bin/server/server.exe &
           sleep 1;
-          for (( i=0; i<1024; ++i )) ; do curl -s http://localhost:8080/ ; done
+          for (( i=0; i<1024; ++i )) ; do
+            echo -n "$i "
+            curl -s http://localhost:8080/ ;
+          done
