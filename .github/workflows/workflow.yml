@@ -14,7 +14,7 @@ jobs:
         ocaml-compiler:
           - ocaml.5.2.0
 
-    runs-on: macos-latest
+    runs-on: macos-13
 
     steps:
       - name: Check out code
