@@ -1,4 +1,5 @@
 let () =
+  Lwt_engine.set (new Lwt_engine.libev ()) in
   Dream.router
     [
       Dream.get "/" (fun _ ->
