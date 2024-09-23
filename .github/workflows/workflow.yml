@@ -14,9 +14,12 @@ jobs:
         ocaml-compiler:
           - ocaml.5.2.0
 
-    runs-on: macos-13
+    runs-on: macos-latest
 
     steps:
+      - name: Install libev
+        run: brew install libev
+        
       - name: Check out code
         uses: actions/checkout@v3
 
@@ -28,6 +31,9 @@ jobs:
         with:
           ocaml-compiler: ${{ matrix.ocaml-compiler }}
 
+      - name: Make sure Lwt is compiled with libev support
+        run: opam install conf-libev
+        
       - name: Install dependencies
         run: opam install . --deps-only --with-test
 
