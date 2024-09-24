@@ -1,6 +1,6 @@
 let () =
-  Lwt_engine.set (new Lwt_engine.libev ~backend:Lwt_engine.Ev_backend.kqueue ()) in
-  (* Lwt_engine.set (new Lwt_engine.select) in *)
+  (* Lwt_engine.set (new Lwt_engine.libev ~backend:Lwt_engine.Ev_backend.kqueue ()) in *)
+  Lwt_engine.set (new Lwt_engine.select) in
   Dream.router
     [
       Dream.get "/" (fun _ ->
